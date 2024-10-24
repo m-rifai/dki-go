@@ -1,0 +1,48 @@
+Method: POST, Path: /login, Status: 200, Duration: 100.745327ms
+Request Body - POST /login {
+  "username": "admin",
+  "password": "password123"
+}
+
+Response Body - POST /login {"status":"success","message":"Authentication successful","data":{"token":"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNzI5NzQ4OTY3LCJpYXQiOjE3Mjk2NjI1Njd9.EyAD-2tSFqNapYKm87lk2g7zyLJt4w-AH5tMkfmgsyI"}}
+
+Method: POST, Path: /stocks, Status: 201, Duration: 10.756429ms
+Request Body - POST /stocks {
+    "nama_barang": "Monitor",
+    "jumlah_stok": 10,
+    "nomor_seri": "MNTR12345",
+    "additional_info": {
+        "resolution": "1920x1080",
+        "brand": "Dell"
+    },
+    "gambar_barang": "url-to-image",
+    "created_by": "Admin"
+}
+Response Body - POST /stocks {"status":"success","message":"Stock created successfully","data":{"id":7,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"resolution":"1920x1080","brand":"Dell"},"gambar_barang":"url-to-image","created_at":"2024-10-23T05:49:48.593418446Z","created_by":"Admin","updated_at":"2024-10-23T05:49:48.593418498Z","updated_by":""}}
+
+Method: GET, Path: /stocks, Status: 200, Duration: 1.068506ms
+Request Body - GET /stocks 
+Response Body - GET /stocks {"status":"success","data":{"data":[{"id":2,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-20T16:07:41.075421Z","created_by":"Admin","updated_at":"2024-10-20T16:07:41.075421Z","updated_by":""},{"id":3,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-20T16:35:34.363292Z","created_by":"Admin","updated_at":"2024-10-20T16:35:34.363292Z","updated_by":""},{"id":4,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-21T16:26:35.477954Z","created_by":"Admin","updated_at":"2024-10-21T16:26:35.477954Z","updated_by":""},{"id":5,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-23T05:41:30.153355Z","created_by":"Admin","updated_at":"2024-10-23T05:41:30.153355Z","updated_by":""},{"id":6,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-23T05:44:40.635468Z","created_by":"Admin","updated_at":"2024-10-23T05:44:40.635468Z","updated_by":""},{"id":7,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-23T05:49:48.593418Z","created_by":"Admin","updated_at":"2024-10-23T05:49:48.593418Z","updated_by":""}],"page":1,"pageSize":10,"totalItems":6,"totalPages":1}}
+
+Method: GET, Path: /stocks/2, Status: 200, Duration: 742.255µs
+Request Body - GET /stocks/2 
+Response Body - GET /stocks/2 {"status":"success","data":{"id":2,"nama_barang":"Monitor","jumlah_stok":10,"nomor_seri":"MNTR12345","additional_info":{"brand":"Dell","resolution":"1920x1080"},"gambar_barang":"url-to-image","created_at":"2024-10-20T16:07:41.075421Z","created_by":"Admin","updated_at":"2024-10-20T16:07:41.075421Z","updated_by":""}}
+
+Method: PUT, Path: /stocks/2, Status: 200, Duration: 10.77372ms
+Request Body - PUT /stocks/2 {
+    "nama_barang": "Monitor",
+    "jumlah_stok": 20,
+    "nomor_seri": "MNTR12345",
+    "additional_info": {
+        "resolution": "1920x1080",
+        "brand": "Dell"
+    },
+    "gambar_barang": "url-to-image",
+    "updated_by": "Admin"
+}
+Response Body - PUT /stocks/2 {"status":"success","message":"Stock updated successfully","data":{"id":2,"nama_barang":"Monitor","jumlah_stok":20,"nomor_seri":"MNTR12345","additional_info":{"resolution":"1920x1080","brand":"Dell"},"gambar_barang":"url-to-image","created_at":"2024-10-20T16:07:41.075421Z","created_by":"Admin","updated_at":"2024-10-23T05:50:23.572373783Z","updated_by":"Admin"}}
+
+Method: DELETE, Path: /stocks/7, Status: 200, Duration: 10.902069ms
+Request Body - DELETE /stocks/7 
+Response Body - DELETE /stocks/7 {"status":"success","message":"Stock deleted successfully"}
+

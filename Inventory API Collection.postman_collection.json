@@ -1,0 +1,223 @@
+{
+	"info": {
+		"_postman_id": "43fa1651-a30b-4801-b229-6d8aa99af9b6",
+		"name": "Inventory API Collection",
+		"description": "Postman collection for testing Inventory API built in Golang",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25178335"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"username\": \"admin\",\n  \"password\": \"password123\"\n}\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}/login",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create Stock",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama_barang\": \"Monitor\",\n    \"jumlah_stok\": 10,\n    \"nomor_seri\": \"MNTR12345\",\n    \"additional_info\": {\n        \"resolution\": \"1920x1080\",\n        \"brand\": \"Dell\"\n    },\n    \"gambar_barang\": \"url-to-image\",\n    \"created_by\": \"Admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/stocks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stocks"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Stocks",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNzI5NzQ4MjU1LCJpYXQiOjE3Mjk2NjE4NTV9.an-hgduFlkGYiabddovUg4NYRsBZ2_bcN2efppJsuZA",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNzI5NzQ4MjU1LCJpYXQiOjE3Mjk2NjE4NTV9.an-hgduFlkGYiabddovUg4NYRsBZ2_bcN2efppJsuZA",
+						"type": "text",
+						"disabled": true
+					}
+				],
+				"url": {
+					"raw": "{{base_url}}/stocks?page=1&pageSize=10",
+					"host": [
+						"{{base_url}}"
+					],
+					"path": [
+						"stocks"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "pageSize",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Stock by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/stocks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update Stock",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"nama_barang\": \"Monitor\",\n    \"jumlah_stok\": 20,\n    \"nomor_seri\": \"MNTR12345\",\n    \"additional_info\": {\n        \"resolution\": \"1920x1080\",\n        \"brand\": \"Dell\"\n    },\n    \"gambar_barang\": \"url-to-image\",\n    \"updated_by\": \"Admin\"\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/stocks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Stock",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/stocks/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"stocks",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluIiwiZXhwIjoxNzI5NzQ4OTY3LCJpYXQiOjE3Mjk2NjI1Njd9.EyAD-2tSFqNapYKm87lk2g7zyLJt4w-AH5tMkfmgsyI",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "http://localhost:8080",
+			"type": "string"
+		}
+	]
+}
